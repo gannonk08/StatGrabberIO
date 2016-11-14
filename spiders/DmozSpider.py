@@ -1,13 +1,18 @@
 import scrapy
-
-class DmozItem(scrapy.Item):
-    title = scrapy.Field()
-    link = scrapy.Field()
-    desc = scrapy.Field()
+from items import *
 
 class DmozSpider(scrapy.Spider):
 
     name = 'dmoz'
+
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'pipelines.AddTablePipeline': 500,
+            'export_pipelines.ExportJSON':400,
+            # 'screenshot_pipelines.ScreenshotPipeline':300,
+
+        }
+    }
 
     def __init__(self, *args, **kwargs):
       super(DmozSpider, self).__init__(*args, **kwargs)

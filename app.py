@@ -4,6 +4,12 @@ from scrapy.crawler import CrawlerRunner
 from scrapy.utils.log import configure_logging
 
 from spiders.DmozSpider import DmozSpider
+from export_pipelines import *
+
+
+import os
+from flask import Flask, render_template, url_for, json
+
 
 app = Flask(__name__)
 
@@ -19,7 +25,15 @@ def get_data():
             d = runner.crawl(DmozSpider, start_url=content['url'])
             d.addBoth(lambda _: reactor.stop())
             reactor.run()
-            return('scraping')
+
+            #Ad
+
+            SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+            json_url = os.path.join(SITE_ROOT, "exports/json/", "dmoz.json")
+            data = json.load(open(json_url))
+
+
+            return jsonify(data)
         return abort(404)
 
 
