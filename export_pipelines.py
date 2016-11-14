@@ -40,6 +40,7 @@ class ExportJSON(ExportData):
     """
     Exporting to export/json/spider-name.json file
     """
+
     def spider_opened(self, spider):
         file_to_save = open('exports/json/%s.json' % spider.name, 'w+b')
         self.files[spider] = file_to_save

@@ -9,7 +9,6 @@ class DmozSpider(scrapy.Spider):
         'ITEM_PIPELINES': {
             'pipelines.AddTablePipeline': 500,
             'export_pipelines.ExportJSON':400,
-            # 'screenshot_pipelines.ScreenshotPipeline':300,
 
         }
     }
