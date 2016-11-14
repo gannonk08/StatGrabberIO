@@ -1,4 +1,6 @@
-# Flask Scrapy Test
+# StatGrabber
+
+StatGrabber is a python based webscrapper API that only needs a URL to return JSON formatted statistics, currently scores are returned
 
 ## Setup
 
@@ -9,11 +11,11 @@
 ## Run
 
 ```sh
-$ python app.py
+$ python espn_app.py
 ```
 
 Then send a POST request in a new terminal window:
 
 ```sh
-$ http POST http://localhost:5000/data spider=dmoz url=http://www.dmoz.org/Computers/Programming/Languages/Python/Books/
+$ http POST http://localhost:5000/data spider=espn_crawler url=http://www.espn.com/nfl/game\?gameId\=400874553
 ```
