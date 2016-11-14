@@ -2,3 +2,5 @@
 env/*
 .editorconfig
 logs/*
+SSHKEYS
+SSHKEYS.pub
